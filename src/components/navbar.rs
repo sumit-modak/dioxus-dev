@@ -1,7 +1,7 @@
 use crate::Route;
 use dioxus::prelude::*;
 
-const NAVBAR_CSS: Asset = asset!("/assets/styling/navbar.css");
+const NAVBAR_CSS: Asset = asset!("/assets/styles/navbar.css");
 
 #[component]
 pub fn Navbar() -> Element {
@@ -13,6 +13,10 @@ pub fn Navbar() -> Element {
             Link {
                 to: Route::Home {},
                 "Home"
+            }
+            Link {
+                to: Route::DogView {},
+                "HotDog"
             }
             Link {
                 to: Route::Blog { id: 1 },
