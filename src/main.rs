@@ -1,49 +1,42 @@
-use dioxus::prelude::*;
-
-use components::Navbar;
-use views::{Blog, DogView, Home};
-
-mod components;
-mod views;
-
-#[derive(Debug, Clone, Routable, PartialEq)]
-#[rustfmt::skip]
-enum Route {
-    #[layout(Navbar)]
-    #[route("/")]
-    Home {},
-    #[route("/dog")]
-    DogView {},
-    #[route("/blog/:id")]
-    Blog { id: i32 },
-}
-
-const FERRIS: Asset = asset!(
-    "/assets/icons/ferris.png",
-    ImageAssetOptions::new()
-        .with_size(ImageSize::Manual {
-            width: 300,
-            height: 300
-        })
-        .with_avif()
-);
-const MAIN_CSS: Asset = asset!("/assets/styles/main.css");
-const TAILWIND_CSS: Asset = asset!("/assets/tailwind.css");
+use dioxus_dev::{App, routes};
 
 fn main() {
+    // #[allow(
+    //     clippy::expect_used,
+    //     clippy::diverging_sub_expression,
+    //     clippy::needless_return
+    // )]
+
+    #[cfg(feature = "server")]
+    tokio::runtime::Builder::new_multi_thread()
+        .enable_all()
+        .build()
+        .expect("Failed building the Runtime")
+        .block_on(launch_server());
+
+    #[cfg(not(feature = "server"))]
     dioxus::launch(App);
 }
 
-#[component]
-fn App() -> Element {
-    // Build cool things ✌️
+#[cfg(feature = "server")]
+async fn launch_server() {
+    // use dioxus::fullstack::server::DioxusRouterExt::serve_dioxus_application;
+    use dioxus::prelude::DioxusRouterExt;
+    use dioxus::prelude::ServeConfigBuilder;
 
-    rsx! {
-        // Global app resources
-        document::Link { rel: "icon", href: FERRIS }
-        document::Link { rel: "stylesheet", href: MAIN_CSS }
-        document::Stylesheet { href: TAILWIND_CSS }
+    // Connect to dioxus' logging infrastructure
+    dioxus::logger::initialize_default();
 
-        Router::<Route> {}
-    }
+    // Connect to the IP and PORT env vars passed by the Dioxus CLI (or your dockerfile)
+    let socket_addr = dioxus::cli_config::fullstack_address_or_localhost();
+
+    // Build a custom axum router
+    let router = axum::Router::new()
+        .nest("/", routes::server_routes())
+        .serve_dioxus_application(ServeConfigBuilder::new(), App)
+        .into_make_service();
+
+    // And launch it!
+    let listener = tokio::net::TcpListener::bind(socket_addr).await.unwrap();
+    axum::serve(listener, router).await.unwrap();
 }

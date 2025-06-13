@@ -7,12 +7,14 @@ edition = "2024"
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
-dioxus = { version = "0", features = ["router", "fullstack"] }
+axum = { version = "0.7" }
+dioxus = { version = "0", features = ["router", "fullstack", "cli-config"] }
 reqwest = { version = "0.12.20", features = ["json"] }
 serde = { version = "1.0.219", features = ["derive"] }
+tokio = { version = "1.45.1", features = ["full"] }
 
 [features]
-default = ["web"]
+default = []
 server = ["dioxus/server"]
 web = ["dioxus/web"]
 desktop = ["dioxus/desktop"]

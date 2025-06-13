@@ -6,8 +6,7 @@ pub fn Home() -> Element {
     rsx! {
         // Hero {}
         // Echo {}
-        Hello {}
-        World {}
         // Counter {}
+        Hello {}
     }
 }

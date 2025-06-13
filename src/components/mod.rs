@@ -11,10 +11,15 @@ pub use echo::Echo;
 
 mod hello;
 pub use hello::Hello;
-pub use hello::World;
+
+mod img;
+pub use img::Img;
 
 mod counter;
 pub use counter::Counter;
 
 mod boolean;
 pub use boolean::Boolean;
+
+mod global;
+pub use global::Global;
