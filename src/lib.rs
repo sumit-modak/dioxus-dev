@@ -4,7 +4,7 @@ pub mod routes;
 mod views;
 
 use dioxus::prelude::*;
-use views::{Blog, DogView, Home, Random};
+use views::{Blog, DogView, Home, NotFound, Random};
 
 #[rustfmt::skip]
 #[derive(Debug, Clone, Routable, PartialEq)]
@@ -18,6 +18,8 @@ enum Route {
     Blog { id: i32 },
     #[route("/random")]
     Random {},
+    #[route("/:..a")]
+    NotFound { a: Vec<String> },
 }
 
 const FERRIS: Asset = asset!(
