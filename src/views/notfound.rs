@@ -1,11 +1,10 @@
 use dioxus::prelude::*;
 
 #[component]
-pub fn NotFound(a: Vec<String>) -> Element {
+pub fn NotFound(unknownroute: Vec<String>) -> Element {
     rsx! {
-        "Not Found"
-        for i in a {
-            p { "{i}" }
-        }
+        h1 { "Page not found" }
+        p { "We are terribly sorry, but the page you requested doesn't exist." }
+        pre { color: "red", "log:\nattemped to navigate to: {unknownroute:?}" }
     }
 }

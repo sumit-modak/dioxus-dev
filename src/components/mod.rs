@@ -12,9 +12,6 @@ pub use echo::Echo;
 mod hello;
 pub use hello::Hello;
 
-mod img;
-pub use img::Img;
-
 mod counter;
 pub use counter::Counter;
 

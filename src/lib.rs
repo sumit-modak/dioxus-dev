@@ -4,22 +4,39 @@ pub mod routes;
 mod views;
 
 use dioxus::prelude::*;
-use views::{Blog, DogView, Home, NotFound, Random};
+use views::*;
 
 #[rustfmt::skip]
 #[derive(Debug, Clone, Routable, PartialEq)]
 enum Route {
     #[layout(components::Navbar)]
-    #[route("/")]
-    Home {},
-    #[route("/dog")]
-    DogView {},
-    #[route("/blog/:id")]
-    Blog { id: i32 },
-    #[route("/random")]
-    Random {},
-    #[route("/:..a")]
-    NotFound { a: Vec<String> },
+        #[route("/")]
+        Home {},
+        #[nest("/blog")]
+            #[layout(BlogBar)]
+            #[route("/")]
+            BlogList {},
+            #[route("/post/:id")]
+            Blog { id: i32 },
+            #[end_layout]
+        #[end_nest]
+        #[route("/dog")]
+        DogView {},
+        #[route("/random")]
+        Random {},
+        #[nest("/misc")]
+            #[route("/")]
+            Misc {},
+            #[route("/play")]
+            Play {},
+        #[end_nest]
+    #[end_layout]
+    #[nest("/myblog")]
+        #[redirect("/", || Route::BlogList {})]
+        #[redirect("/:id", |id: i32| Route::Blog { id })]
+    #[end_nest]
+    #[route("/:..unknownroute")]
+    NotFound { unknownroute: Vec<String> },
 }
 
 const FERRIS: Asset = asset!(
