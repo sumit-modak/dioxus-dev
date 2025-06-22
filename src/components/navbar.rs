@@ -33,5 +33,9 @@ pub fn Navbar() -> Element {
         }
 
         Outlet::<Route> {}
+
+        div {
+            a { href: "mailto:sumitmodak@gmail.com", "Contact Us" }
+        }
     }
 }

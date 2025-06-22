@@ -20,3 +20,6 @@ pub use favorites::Favorites;
 
 mod misc;
 pub use misc::{Misc, Play};
+
+mod form;
+pub use form::Form;
