@@ -19,22 +19,19 @@ pub fn Navbar() -> Element {
                 "Blog"
             }
             Link {
+                to: Route::Test {},
+                "Test"
+            }
+            Link {
                 to: Route::DogView {},
                 "HotDog"
-            }
-            Link {
-                to: Route::Random {},
-                "Random"
-            }
-            Link {
-                to: Route::Misc {},
-                "Misc"
             }
         }
 
         Outlet::<Route> {}
 
         div {
+            id: "contactus",
             a { href: "mailto:sumitmodak@gmail.com", "Contact Us" }
         }
     }

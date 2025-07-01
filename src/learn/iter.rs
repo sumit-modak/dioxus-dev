@@ -15,7 +15,7 @@ impl User {
 }
 
 #[component]
-pub fn Hello() -> Element {
+pub fn Iter() -> Element {
     let users = [User::new("feno"), User::new("godl"), User::new("agog")];
     rsx! {
         // iterating users using for loop

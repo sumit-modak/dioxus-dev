@@ -1,20 +1,20 @@
 #navbar {
-    border: 1px solid rgb(233, 233, 233);
-    border-width: 1px 0px 0px 0px;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
-    padding: 20px;
-    gap: 20px;
+  border: 1px solid rgb(233, 233, 233);
+  border-width: 1px 0px 1px 0px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  padding: 20px;
+  gap: 20px;
 }
 
 #navbar a {
-    background-color: #a8a8a8;
-    border-radius: 5px;
-    border: 1px solid black;
-    text-decoration: none;
-    color: black;
-    padding: 10px 30px 10px 30px;
+  background-color: #a8a8a8;
+  border-radius: 5px;
+  border: 1px solid black;
+  text-decoration: none;
+  color: black;
+  padding: 10px 30px 10px 30px;
 }
 
 #navbar a:hover {
@@ -22,3 +22,26 @@
   color: #91a4d2;
 }
 
+#contactus {
+  background-color: green;
+  display: flex;
+  justify-content: space-evenly;
+  padding: 20px;
+}
+
+#navbar2 {
+  border: 1px solid rgb(233, 233, 233);
+  border-width: 0px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  padding: 20px;
+  gap: 20px;
+}
+
+#navbar2 a {}
+
+/* #contactus a { */
+/* padding: 10px 30px 10px 30px; */
+/* background-color: #a8a8a8; */
+/* } */

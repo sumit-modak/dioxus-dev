@@ -3,6 +3,7 @@ mod components;
 pub mod routes;
 mod view_router;
 mod views;
+mod learn;
 
 use dioxus::prelude::*;
 pub use view_router::Route;
@@ -17,7 +18,7 @@ const FERRIS: Asset = asset!(
         .with_avif()
 );
 const MAIN_CSS: Asset = asset!("/assets/styles/main.css");
-const TAILWIND_CSS: Asset = asset!("/assets/tailwind.css");
+// const TAILWIND_CSS: Asset = asset!("/assets/tailwind.css");
 
 #[component]
 pub fn App() -> Element {
@@ -27,7 +28,7 @@ pub fn App() -> Element {
         // Global app resources
         document::Link { rel: "icon", href: FERRIS }
         document::Link { rel: "stylesheet", href: MAIN_CSS }
-        document::Stylesheet { href: TAILWIND_CSS }
+        // document::Stylesheet { href: TAILWIND_CSS }
 
         Router::<crate::view_router::Route> {}
     }

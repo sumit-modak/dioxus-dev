@@ -9,14 +9,5 @@ pub use navbar::Navbar;
 mod echo;
 pub use echo::Echo;
 
-mod hello;
-pub use hello::Hello;
-
-mod counter;
-pub use counter::Counter;
-
-mod boolean;
-pub use boolean::Boolean;
-
-mod global;
-pub use global::Global;
+mod navbar2;
+pub use navbar2::Navbar2;

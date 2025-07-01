@@ -1,29 +1,42 @@
 use crate::Route;
 use dioxus::prelude::*;
 
-const BLOG_CSS: Asset = asset!("/assets/styles/blog.css");
+#[component]
+pub fn BlogBar() -> Element {
+    rsx! {
+        h1 { class: "blogbar", "Blog" }
+        Outlet::<Route> {}
+    }
+}
 
 #[component]
 pub fn Blog(id: i32) -> Element {
     rsx! {
-        document::Link { rel: "stylesheet", href: BLOG_CSS }
-
         div {
-            id: "blog",
-
+            class: "general",
             // Content
-            h1 { "This is blog #{id}!" }
-            p { "In blog #{id}, we show how the Dioxus router works and how URL parameters can be passed as props to our route components." }
+            h1 {
+                class: "blog-header",
+                "This is blog #{id}!"
+            }
+            p {
+                "In blog #{id}, we show how the Dioxus router works and how URL parameters can be passed as props to our route components."
+            }
 
             // Navigation links
-            Link {
-                to: Route::Blog { id: id - 1 },
-                "Previous"
-            }
-            span { " <---> " }
-            Link {
-                to: Route::Blog { id: id + 1 },
-                "Next"
+            div {
+                class: "urlparent",
+                Link {
+                    to: Route::Blog { id: id - 1 },
+                    class: "url",
+                    "Previous"
+                }
+                span { " <---> " }
+                Link {
+                    to: Route::Blog { id: id + 1 },
+                    class: "url",
+                    "Next"
+                }
             }
         }
     }
@@ -37,23 +50,17 @@ pub fn BlogList() -> Element {
             li {
                 Link {
                     to: Route::Blog { id: 1 },
-                    "Read the first blog post"
+                    class: "url",
+                    "Fetch first blog from database."
                 }
             }
             li {
                 Link {
                     to: Route::Blog { id: 2 },
-                    "Read the second blog post"
+                    class: "url",
+                    "Fetch second blog from database."
                 }
             }
         }
-    }
-}
-
-#[component]
-pub fn BlogBar() -> Element {
-    rsx! {
-        h1 { "Blog" }
-        Outlet::<Route> {}
     }
 }

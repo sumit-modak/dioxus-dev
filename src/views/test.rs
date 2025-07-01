@@ -4,15 +4,13 @@ use crate::components::*;
 use dioxus::prelude::*;
 
 #[component]
-pub fn Misc() -> Element {
+pub fn Test() -> Element {
     rsx! {
-        Hello {}
-        Echo {}
-        Counter {}
         a {
             href: "https://youtube.com/",
             target: "_blank",
             title: "Goes to youtube.com",
+            class: "url",
             "YOUTUBE",
         }
     }

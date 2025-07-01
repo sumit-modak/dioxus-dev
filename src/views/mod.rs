@@ -18,8 +18,8 @@ pub use notfound::NotFound;
 mod favorites;
 pub use favorites::Favorites;
 
-mod misc;
-pub use misc::{Misc, Play};
+mod test;
+pub use test::{Test, Play};
 
 mod form;
 pub use form::Form;
