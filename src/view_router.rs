@@ -26,6 +26,10 @@ pub enum Route {
                 Form {},
                 #[route("/random")]
                 Random {},
+                #[route("/float")]
+                Float {},
+                #[route("/column")]
+                Column {},
             #[end_layout]
         #[end_nest]
         #[route("/dog")]

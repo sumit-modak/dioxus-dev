@@ -26,13 +26,13 @@ pub fn Play() -> Element {
             src: TOM_SCREAM,
             // type: "mpeg/mp3",
             controls: true,
-            // autoplay: true,
+            autoplay: false,
             "Your browser does not support the audio element"
         }
         video {
             src: OHHH_MEME,
             controls: true,
-            autoplay: true,
+            autoplay: false,
             muted: true,
             loop: true,
         }

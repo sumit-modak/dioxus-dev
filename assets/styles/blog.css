@@ -1,0 +1,24 @@
+.blogbar {
+  font-size: 3rem;
+  text-align: center;
+  color: black;
+  background-color: gold;
+  padding: 12px 24px 12px 24px;
+  border: 2px solid darkgoldenrod;
+  border-radius: 2rem;
+  margin: 0 auto 1rem auto;
+  /* align-content: center; */
+}
+
+.blog-content {
+  font-size: 1.5rem;
+  justify-content: space-evenly;
+}
+
+.blog-header {
+  text-decoration: underline;
+}
+
+.bloglist {
+  list-style-type: none;
+}

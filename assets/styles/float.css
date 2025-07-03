@@ -1,0 +1,28 @@
+.block {
+  width: 10rem;
+  height: 10rem;
+  background-color: cyan;
+  color: black;
+}
+
+.floatleft {
+  float: left;
+  margin: 10px;
+}
+
+.floatright {
+  float: right;
+  margin: 10px;
+}
+
+.clear {
+  clear: both;
+}
+
+.outer-block {
+  background-color: #232323;
+  border: 1px solid #333333;
+  padding: 0.5rem;
+  /* overflow: auto; */
+  display: flow-root;
+}

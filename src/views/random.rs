@@ -6,13 +6,6 @@ pub fn Random() -> Element {
     rsx! {
         // Image & button
         div {
-            class: "bg-red-100",
-            for img_src in images.read().iter() {
-                img {
-                    max_height: "300px",
-                    src: "{img_src}"
-                }
-            }
             button {
                 onclick: move |e: Event<MouseData>| async move {
                     info!("Clicked");
@@ -20,6 +13,12 @@ pub fn Random() -> Element {
                     *images.write() = img_list().await.unwrap();
                 },
                 "Click me!"
+            }
+            for img_src in images.read().iter() {
+                img {
+                    max_height: "300px",
+                    src: "{img_src}"
+                }
             }
         }
     }

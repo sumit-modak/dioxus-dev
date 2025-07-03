@@ -1,10 +1,18 @@
 use crate::Route;
 use dioxus::prelude::*;
 
+const BLOG_CSS: Asset = asset!("/assets/styles/blog.css");
+
 #[component]
 pub fn BlogBar() -> Element {
     rsx! {
-        h1 { class: "blogbar", "Blog" }
+        document::Link { rel: "stylesheet", href: BLOG_CSS }
+
+        h1 {
+            class: "blogbar",
+            // style: "width: 50%",
+            "Blog"
+        }
         Outlet::<Route> {}
     }
 }
@@ -13,7 +21,7 @@ pub fn BlogBar() -> Element {
 pub fn Blog(id: i32) -> Element {
     rsx! {
         div {
-            class: "general",
+            class: "blog-content",
             // Content
             h1 {
                 class: "blog-header",
@@ -47,6 +55,7 @@ pub fn BlogList() -> Element {
     rsx! {
         h2 { "Choose a post" }
         ul {
+            class: "bloglist",
             li {
                 Link {
                     to: Route::Blog { id: 1 },
@@ -59,6 +68,13 @@ pub fn BlogList() -> Element {
                     to: Route::Blog { id: 2 },
                     class: "url",
                     "Fetch second blog from database."
+                }
+            }
+            li {
+                Link {
+                    to: Route::Blog { id: 3 },
+                    class: "url",
+                    "Fetch third blog from database."
                 }
             }
         }

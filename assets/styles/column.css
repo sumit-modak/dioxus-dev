@@ -1,0 +1,25 @@
+.cols {
+  /* column-count: 4;
+  column-width: 250px; */
+  columns: 4 250px;
+  column-rule: 3px solid #deface;
+}
+
+.cols h2 {
+  margin-top: 0;
+  background-color: #434343;
+  color: #beaded;
+  padding: 0.5rem;
+  break-inside: avoid;
+  break-before: column;
+}
+
+.cols .quote {
+  font-size: 3rem;
+  text-align: center;
+  column-span: all;
+}
+
+.nowrap {
+  white-space: nowrap;
+}
