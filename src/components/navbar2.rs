@@ -31,6 +31,16 @@ pub fn Navbar2() -> Element {
                 to: Route::Column {},
                 "Column"
             }
+            Link {
+                class: "url",
+                to: Route::Position {},
+                "Position"
+            }
+            Link {
+                class: "url",
+                to: Route::Pages {},
+                "Pages"
+            }
         }
 
         Outlet::<Route> {}

@@ -33,7 +33,6 @@ pub fn Blog(id: i32) -> Element {
 
             // Navigation links
             div {
-                class: "urlparent",
                 Link {
                     to: Route::Blog { id: id - 1 },
                     class: "url",

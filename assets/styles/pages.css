@@ -1,0 +1,52 @@
+section#one,
+section#two,
+section#three {
+  height: 100vh;
+}
+
+.blue {
+  background-color: #00f;
+}
+
+.red {
+  background-color: #f00;
+}
+
+.green {
+  background-color: green;
+}
+
+.pageheader,
+.pagelinks {
+  color: #fff;
+  text-align: center;
+  height: 100px;
+}
+
+.pageheader {
+  position: sticky;
+  top: 0;
+  font-size: 5rem;
+}
+
+.pagelinks {
+  background-color: #000;
+  position: sticky;
+  bottom: 0;
+  font-size: 3rem;
+}
+
+a:visited {
+  color: #fff;
+}
+
+.social {
+  background-color: royalblue;
+  color: #fff;
+  font-size: inherit;
+  padding: 1rem;
+  position: fixed;
+  top: 50%;
+  left: 0;
+  z-index: 1;
+}

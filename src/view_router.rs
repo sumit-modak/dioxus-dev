@@ -30,6 +30,10 @@ pub enum Route {
                 Float {},
                 #[route("/column")]
                 Column {},
+                #[route("/position")]
+                Position {},
+                #[route("/pages")]
+                Pages {},
             #[end_layout]
         #[end_nest]
         #[route("/dog")]

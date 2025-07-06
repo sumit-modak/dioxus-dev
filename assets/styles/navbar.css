@@ -23,10 +23,11 @@
 }
 
 #contactus {
-  background-color: green;
+  background-color: rgb(33, 186, 69);
   display: flex;
   justify-content: space-evenly;
   padding: 20px;
+  height: 100px;
 }
 
 #navbar2 {

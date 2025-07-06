@@ -11,14 +11,20 @@ body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   height: 100%;
   width: 100%;
-  overflow: hidden;
+  scroll-behavior: smooth;
+  /* overflow: hidden; */
 }
 
-.url {
-  color: deepskyblue;
+a.url,
+a.url:visited {
+  color: rgb(62, 166, 255);
 }
 
-.urlparent a:hover {
-  background-color: #2f2f2f;
+a.url:hover {
+  color: rgb(62, 206, 255);
   cursor: pointer;
+}
+
+a.url:active {
+  color: purple;
 }
