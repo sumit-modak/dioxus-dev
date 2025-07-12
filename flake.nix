@@ -4,20 +4,11 @@
     flake-parts.url = "github:hercules-ci/flake-parts";
 
     rust-overlay.url = "github:oxalica/rust-overlay";
-    # process-compose-flake.url = "github:Platonic-Systems/process-compose-flake";
-    # cargo-doc-live.url = "github:srid/cargo-doc-live";
-    # crane.url = "github:ipetkov/crane";
-    # crane.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   outputs = { self, flake-parts, ... } @inputs:
     flake-parts.lib.mkFlake { inherit inputs; } {
       systems = [ "x86_64-linux" "x86_64-darwin" "aarch64-darwin" "aarch64-linux" ];
-
-      # imports = [
-      #   inputs.process-compose-flake.flakeModule
-      #   inputs.cargo-doc-live.flakeModule
-      # ];
 
       perSystem = { self', config, pkgs, lib, system, ... }: let
         rustToolchain = pkgs.rust-bin.stable.latest.default.override {
@@ -32,9 +23,6 @@
             SystemConfiguration IOKit Carbon WebKit Security Cocoa
           ]);
       in
-      # This is useful when building crates as packages
-      # Note that it does require a `Cargo.lock` which this repo does not have
-      # craneLib = (inputs.crane.mkLib pkgs).overrideToolchain rustToolchain;
       {
         _module.args.pkgs = import inputs.nixpkgs {
           inherit system;
@@ -83,10 +71,6 @@
             export RUST_SRC_PATH="${rustToolchain}/lib/rustlib/src/rust/library";
           '';
         };
-
-        # Process-compose and cargo-doc-live integration
-        # process-compose = inputs.process-compose-flake.outputs.process-compose;
-        # cargo-doc-live = inputs.cargo-doc-live.outputs.packages;
       };
     };
 }
