@@ -1,0 +1,29 @@
+#list1,
+#list2 {
+  padding: 1rem 2rem;
+}
+
+.myheader {
+  font-size: 3rem;
+  padding: 1rem 2rem;
+}
+
+#list1 {
+  text-align: center;
+  line-height: 1.5rem;
+
+  list-style-type: lower-alpha;
+  /* georgian, decimal, decimal-leading-zero, disc, circle, upper-roman, none, square */
+  list-style-position: inside;
+  /* outside */
+  list-style-image: image("/assets/icons/nix.png");
+  /* list-style: list-style-type list-style-image list-style-position; */
+}
+
+#list2 {}
+
+ul>::marker {
+  color: #FF0000;
+  font-size: 1.2rem;
+  content: ">>> ";
+}

@@ -1,0 +1,32 @@
+.uniqueblock {
+  font-size: 2rem;
+  background-color: mediumseagreen;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
+.opposite-inline {
+  /* display: inline-block; */
+  font-size: 2rem;
+  background-color: blueviolet;
+  /* height: 100px; */
+  /* width: 200px; */
+  margin: 100px;
+  padding: 16px;
+}
+
+/*
+  inline:
+  border, margin-top, margin-bottom, width, height doesn't work
+*/
+
+.opposite-inline-block {
+  display: inline-block;
+  font-size: 2rem;
+  background-color: blueviolet;
+  height: 100px;
+  width: 400px;
+  margin: 16px;
+  padding: 16px;
+  border: 2px solid #FF33FF;
+}

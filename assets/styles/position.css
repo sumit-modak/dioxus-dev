@@ -29,7 +29,7 @@
   z-index: 1;
 }
 
-/* position is set wrt parent element */
+/* position is set wrt closest parent element having position property */
 .relative {
   background-color: #f00;
   position: relative;
@@ -41,7 +41,7 @@
 .fixed {
   background-color: green;
   position: fixed;
-  top: 100px;
+  top: 256px;
 }
 
 /* position is set wrt parent element */

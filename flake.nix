@@ -13,8 +13,8 @@
         overlays = [ rust-overlay.overlays.default ];
       };
       
-      rustToolchain = pkgs.rust-bin.stable.latest.default.override {
-        extensions = [ "rust-src" "rust-analyzer" "clippy" ];
+      rustToolchain = pkgs.rust-bin.stable.latest.minimal.override {
+        extensions = [ "rust-src" ];
         targets = [ "wasm32-unknown-unknown" ];
       };
       

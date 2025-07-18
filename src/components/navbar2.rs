@@ -23,6 +23,16 @@ pub fn Navbar2() -> Element {
             }
             Link {
                 class: "url",
+                to: Route::List {},
+                "List"
+            }
+            Link {
+                class: "url",
+                to: Route::Display {},
+                "Display"
+            }
+            Link {
+                class: "url",
                 to: Route::Float {},
                 "Float"
             }
@@ -41,7 +51,13 @@ pub fn Navbar2() -> Element {
                 to: Route::Pages {},
                 "Pages"
             }
+            Link {
+                class: "url",
+                to: Route::ProfilePic {},
+                "ProfilePic"
+            }
         }
+        div { class: "hr" }
 
         Outlet::<Route> {}
     }

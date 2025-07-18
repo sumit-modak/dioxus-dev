@@ -26,6 +26,10 @@ pub enum Route {
                 Form {},
                 #[route("/random")]
                 Random {},
+                #[route("/list")]
+                List {},
+                #[route("/display")]
+                Display {},
                 #[route("/float")]
                 Float {},
                 #[route("/column")]
@@ -34,6 +38,8 @@ pub enum Route {
                 Position {},
                 #[route("/pages")]
                 Pages {},
+                #[route("/profile")]
+                ProfilePic {},
             #[end_layout]
         #[end_nest]
         #[route("/dog")]

@@ -21,6 +21,12 @@ pub use random::Random;
 mod form;
 pub use form::Form;
 
+mod display;
+pub use display::Display;
+
+mod list;
+pub use list::List;
+
 mod float;
 pub use float::Float;
 
@@ -32,6 +38,9 @@ pub use position::Position;
 
 mod pages;
 pub use pages::Pages;
+
+mod profilepic;
+pub use profilepic::ProfilePic;
 
 mod notfound;
 pub use notfound::NotFound;

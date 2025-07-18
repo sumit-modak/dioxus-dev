@@ -1,9 +1,9 @@
 mod components;
+mod learn;
 #[cfg(feature = "server")]
 pub mod routes;
 mod view_router;
 mod views;
-mod learn;
 
 use dioxus::prelude::*;
 pub use view_router::Route;
