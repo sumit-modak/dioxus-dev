@@ -20,12 +20,12 @@ pub enum Route {
             #[layout(crate::components::Navbar2)]
                 #[route("/")]
                 Test {},
+                #[route("/random")]
+                Random {},
                 #[route("/play")]
                 Play {},
                 #[route("/form")]
                 Form {},
-                #[route("/random")]
-                Random {},
                 #[route("/list")]
                 List {},
                 #[route("/display")]

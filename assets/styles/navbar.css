@@ -48,7 +48,17 @@
   margin-bottom: 4px;
 }
 
-#navbar2 a {}
+#navbar2 a {
+  margin: auto;
+}
+
+.seperator {
+  display: inline-block;
+  padding: 10px 20px;
+  background: #444;
+  border: 4px solid #222;
+  margin: auto;
+}
 
 /* #contactus a {
 padding: 10px 30px 10px 30px;

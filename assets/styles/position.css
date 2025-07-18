@@ -1,13 +1,14 @@
 .outer-container {
-  border: 3px dashed #000;
+  border: 3px inset #000;
   width: 75vw;
   height: 85vh;
-  margin: 40px auto;
+  margin: 100px auto;
   position: relative;
+  background: #243D83;
 }
 
 .inner-container {
-  border: 2px solid #00f;
+  border: 2px inset #ff0;
   width: 40vw;
   height: 50vh;
   margin: 200px auto;
@@ -20,7 +21,15 @@
   padding: 1rem;
 }
 
-/* position is set wrt closest relative parent element */
+/* position is set wrt parent element */
+.relative {
+  background-color: #f00;
+  position: relative;
+  top: 0px;
+  left: 300px;
+}
+
+/* position is set wrt closest parent element having position property */
 .absolute {
   background-color: #00f;
   position: absolute;
@@ -29,19 +38,12 @@
   z-index: 1;
 }
 
-/* position is set wrt closest parent element having position property */
-.relative {
-  background-color: #f00;
-  position: relative;
-  top: 300px;
-  left: 100px;
-}
-
-/* position is set wrt screen */
+/* position is set wrt screen if specified */
 .fixed {
   background-color: green;
   position: fixed;
   top: 256px;
+  left: 400px;
 }
 
 /* position is set wrt parent element */
@@ -51,4 +53,18 @@
   position: sticky;
   top: 0px;
   bottom: 0px;
+}
+
+.div-white {
+  width: 72px;
+  height: 72px;
+  background: #FFFFFF;
+  position: absolute;
+}
+
+.div-blue {
+  width: 100px;
+  height: 120px;
+  background: #6592CF;
+  position: absolute;
 }

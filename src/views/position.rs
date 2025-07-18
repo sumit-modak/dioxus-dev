@@ -29,6 +29,18 @@ pub fn Position() -> Element {
             }
         }
         div {
+            class: "div-blue", style: "left: 270px; top: 860px;"
+        }
+        div {
+            class: "div-white", style: "left: 270px; top: 908px;"
+        }
+        div {
+            class: "div-white", style: "left: 218px; top: 980px;"
+        }
+        div {
+            class: "div-blue", style: "left: 230px; top: 920px;"
+        }
+        div {
             style: "height: 100vh;",
         }
     }

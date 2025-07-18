@@ -13,13 +13,26 @@ pub fn Navbar2() -> Element {
             }
             Link {
                 class: "url",
-                to: Route::Form {},
-                "Form"
+                to: Route::Random {},
+                "Random"
             }
             Link {
                 class: "url",
-                to: Route::Random {},
-                "Random"
+                to: Route::Pages {},
+                "Pages"
+            }
+            Link {
+                class: "url",
+                to: Route::ProfilePic {},
+                "ProfilePic"
+            }
+            span {
+                class: "seperator",
+            }
+            Link {
+                class: "url",
+                to: Route::Form {},
+                "Form"
             }
             Link {
                 class: "url",
@@ -45,16 +58,6 @@ pub fn Navbar2() -> Element {
                 class: "url",
                 to: Route::Position {},
                 "Position"
-            }
-            Link {
-                class: "url",
-                to: Route::Pages {},
-                "Pages"
-            }
-            Link {
-                class: "url",
-                to: Route::ProfilePic {},
-                "ProfilePic"
             }
         }
         div { class: "hr" }

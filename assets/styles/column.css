@@ -1,8 +1,14 @@
 .cols {
   /* column-count: 4;
   column-width: 250px; */
+  /* min column width */
   columns: 4 250px;
   column-rule: 3px solid #deface;
+  font-size: 1.5rem;
+}
+
+.cols p {
+  border: 4px solid maroon;
 }
 
 .cols h2 {
@@ -11,15 +17,19 @@
   color: #beaded;
   padding: 0.5rem;
   break-inside: avoid;
-  break-before: column;
+  /* keeps next topic intact (doesn't matter top, bottom or middle) */
+  /* break-before: column; */
+  /* keeps next topic on top */
 }
 
 .cols .quote {
   font-size: 3rem;
   text-align: center;
   column-span: all;
+  /*lets this element break the columns horizontally from between*/
 }
 
 .nowrap {
   white-space: nowrap;
+  /* this property keeps the span element intact */
 }
