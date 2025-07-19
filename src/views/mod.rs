@@ -18,6 +18,12 @@ pub use test::{Play, Test};
 mod random;
 pub use random::Random;
 
+mod pages;
+pub use pages::Pages;
+
+mod profilepic;
+pub use profilepic::ProfilePic;
+
 mod form;
 pub use form::Form;
 
@@ -36,11 +42,11 @@ pub use column::Column;
 mod position;
 pub use position::Position;
 
-mod pages;
-pub use pages::Pages;
+mod flexbox;
+pub use flexbox::FlexBox;
 
-mod profilepic;
-pub use profilepic::ProfilePic;
+mod grid;
+pub use grid::Grid;
 
 mod notfound;
 pub use notfound::NotFound;

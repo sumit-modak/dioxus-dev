@@ -1,0 +1,33 @@
+#flex-parent {
+  border: 8px solid palevioletred;
+  display: flex;
+  min-height: 800px;
+  justify-content: space-evenly;
+  /* flex-start, flex-end, center, space-between, space-around, space-evenly */
+  align-items: center;
+  /* flex-start, flex-end, center, space-between, space-around, space-evenly */
+  flex-direction: row;
+  /* row, row-reverse, column, column-reverse */
+  flex-wrap: wrap;
+  /* wrap, nowrap, wrap-reverse */
+  align-content: space-evenly;
+  /* property: gap, column-gap, row-gap */
+  /* flex-flow: <direction> [wrap|nowrap]; */
+  /* align-content: flex-start|flex-end|center|space-between|space-around|stretch */
+}
+
+.myflex {
+  height: 200px;
+  width: 200px;
+  background-color: rebeccapurple;
+  font-size: 40pt;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+  flex-grow: 0;
+  /* min-width: ; */
+  /* max-width: ; */
+  /* order: ; */
+  /* align-self: ; */
+}

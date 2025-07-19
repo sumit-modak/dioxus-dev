@@ -59,6 +59,16 @@ pub fn Navbar2() -> Element {
                 to: Route::Position {},
                 "Position"
             }
+            Link {
+                class: "url",
+                to: Route::FlexBox {},
+                "FlexBox"
+            }
+            Link {
+                class: "url",
+                to: Route::Grid {},
+                "Grid"
+            }
         }
         div { class: "hr" }
 

@@ -20,10 +20,14 @@ pub enum Route {
             #[layout(crate::components::Navbar2)]
                 #[route("/")]
                 Test {},
-                #[route("/random")]
-                Random {},
                 #[route("/play")]
                 Play {},
+                #[route("/random")]
+                Random {},
+                #[route("/pages")]
+                Pages {},
+                #[route("/profile")]
+                ProfilePic {},
                 #[route("/form")]
                 Form {},
                 #[route("/list")]
@@ -36,10 +40,10 @@ pub enum Route {
                 Column {},
                 #[route("/position")]
                 Position {},
-                #[route("/pages")]
-                Pages {},
-                #[route("/profile")]
-                ProfilePic {},
+                #[route("/flexbox")]
+                FlexBox {},
+                #[route("/grid")]
+                Grid {},
             #[end_layout]
         #[end_nest]
         #[route("/dog")]
