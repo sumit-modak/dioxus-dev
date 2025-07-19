@@ -1,3 +1,5 @@
+use crate::blog::*;
+use crate::examples::*;
 use crate::views::*;
 use dioxus::prelude::*;
 
@@ -17,17 +19,27 @@ pub enum Route {
             #[end_layout]
         #[end_nest]
         #[nest("/test")]
-            #[layout(crate::components::Navbar2)]
+            #[layout(crate::views::TestNavbar)]
                 #[route("/")]
                 Test {},
+                #[route("/hero")]
+                Hero {},
                 #[route("/play")]
                 Play {},
                 #[route("/random")]
                 Random {},
                 #[route("/pages")]
                 Pages {},
-                #[route("/profile")]
-                ProfilePic {},
+                #[route("/dog")]
+                DogView {},
+            #[end_layout]
+        #[end_nest]
+        #[nest("/example")]
+            #[layout(crate::examples::ExampleNavbar)]
+                #[route("/")]
+                Example {},
+                #[route("/background")]
+                Background {},
                 #[route("/form")]
                 Form {},
                 #[route("/list")]
@@ -46,8 +58,6 @@ pub enum Route {
                 Grid {},
             #[end_layout]
         #[end_nest]
-        #[route("/dog")]
-        DogView {},
     #[end_layout]
 
     /// route to redirect to other endpoints

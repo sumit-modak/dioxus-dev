@@ -15,16 +15,16 @@ pub fn Navbar() -> Element {
                 "Home"
             }
             Link {
-                to: Route::BlogList {},
-                "Blog"
+                to: Route::Example {},
+                "Examples"
             }
             Link {
                 to: Route::Test {},
                 "Test"
             }
             Link {
-                to: Route::DogView {},
-                "HotDog"
+                to: Route::BlogList {},
+                "Blog"
             }
         }
 

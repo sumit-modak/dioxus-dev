@@ -1,10 +1,11 @@
 #![allow(unused)]
+use dioxus::prelude::*;
 
 mod home;
 pub use home::Home;
 
-mod blog;
-pub use blog::{Blog, BlogBar, BlogList};
+mod hero;
+pub use hero::Hero;
 
 mod dogview;
 pub use dogview::DogView;
@@ -12,8 +13,8 @@ pub use dogview::DogView;
 mod favorites;
 pub use favorites::Favorites;
 
-mod test;
-pub use test::{Play, Test};
+mod play;
+pub use play::Play;
 
 mod random;
 pub use random::Random;
@@ -21,32 +22,51 @@ pub use random::Random;
 mod pages;
 pub use pages::Pages;
 
-mod profilepic;
-pub use profilepic::ProfilePic;
-
-mod form;
-pub use form::Form;
-
-mod display;
-pub use display::Display;
-
-mod list;
-pub use list::List;
-
-mod float;
-pub use float::Float;
-
-mod column;
-pub use column::Column;
-
-mod position;
-pub use position::Position;
-
-mod flexbox;
-pub use flexbox::FlexBox;
-
-mod grid;
-pub use grid::Grid;
-
 mod notfound;
 pub use notfound::NotFound;
+
+/// Test Navigation Bar
+#[component]
+pub fn TestNavbar() -> Element {
+    use crate::Route;
+    rsx! {
+        div {
+            id: "test-navbar",
+            Link {
+                class: "url",
+                to: Route::Hero {},
+                "Hero"
+            }
+            Link {
+                class: "url",
+                to: Route::Play {},
+                "Play"
+            }
+            Link {
+                class: "url",
+                to: Route::Random {},
+                "Random"
+            }
+            Link {
+                class: "url",
+                to: Route::Pages {},
+                "Pages"
+            }
+            Link {
+                class: "url",
+                to: Route::DogView {},
+                "DogView"
+            }
+        }
+        div { class: "hr" }
+
+        Outlet::<Route> {}
+    }
+}
+
+#[component]
+pub fn Test() -> Element {
+    rsx! {
+        crate::components::Echo {}
+    }
+}

@@ -1,5 +1,7 @@
+mod blog;
 mod components;
-mod learn;
+mod dioksus;
+mod examples;
 #[cfg(feature = "server")]
 pub mod routes;
 mod view_router;

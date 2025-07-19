@@ -1,33 +1,43 @@
-use crate::Route;
 use dioxus::prelude::*;
 
+mod background;
+pub use background::Background;
+
+mod form;
+pub use form::Form;
+
+mod display;
+pub use display::Display;
+
+mod list;
+pub use list::List;
+
+mod float;
+pub use float::Float;
+
+mod column;
+pub use column::Column;
+
+mod position;
+pub use position::Position;
+
+mod flexbox;
+pub use flexbox::FlexBox;
+
+mod grid;
+pub use grid::Grid;
+
+/// Navigation bar for example route
 #[component]
-pub fn Navbar2() -> Element {
+pub fn ExampleNavbar() -> Element {
+    use crate::Route;
     rsx! {
         div {
-            id: "navbar2",
+            id: "example-navbar",
             Link {
                 class: "url",
-                to: Route::Play {},
-                "Play"
-            }
-            Link {
-                class: "url",
-                to: Route::Random {},
-                "Random"
-            }
-            Link {
-                class: "url",
-                to: Route::Pages {},
-                "Pages"
-            }
-            Link {
-                class: "url",
-                to: Route::ProfilePic {},
-                "ProfilePic"
-            }
-            span {
-                class: "seperator",
+                to: Route::Background {},
+                "Background"
             }
             Link {
                 class: "url",
@@ -74,4 +84,9 @@ pub fn Navbar2() -> Element {
 
         Outlet::<Route> {}
     }
+}
+
+#[component]
+pub fn Example() -> Element {
+    rsx!()
 }

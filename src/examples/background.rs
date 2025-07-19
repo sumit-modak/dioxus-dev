@@ -1,12 +1,12 @@
 use dioxus::prelude::*;
 
-const PROFILEPIC_CSS: Asset = asset!("/assets/styles/profilepic.css");
+const BACKGROUND_CSS: Asset = asset!("/assets/styles/background.css");
 const SCENIC_IMG: Asset = asset!("/assets/images/scenic.png");
 
 #[component]
-pub fn ProfilePic() -> Element {
+pub fn Background() -> Element {
     rsx! {
-        document::Link { rel: "stylesheet", href: PROFILEPIC_CSS }
+        document::Link { rel: "stylesheet", href: BACKGROUND_CSS }
         section {
             class: "hero",
             style: format!("background-image: {SCENIC_IMG};"),

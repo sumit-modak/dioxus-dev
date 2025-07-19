@@ -32,7 +32,8 @@
   height: 100px;
 }
 
-#navbar2 {
+#test-navbar,
+#example-navbar {
   /* border-right: 1px solid rgb(233, 233, 233); */
   /* border-bottom: 1px solid rgb(233, 233, 233); */
   display: flex;
@@ -52,6 +53,7 @@
   margin: auto;
 }
 
+/* this shit is unused */
 .seperator {
   display: inline-block;
   padding: 10px 20px;

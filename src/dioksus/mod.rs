@@ -1,3 +1,5 @@
+#![allow(unused)]
+
 mod counter;
 pub use counter::Counter;
 
