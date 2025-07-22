@@ -1,3 +1,4 @@
+pub mod fetch_vid;
 use axum::{Router, routing::get};
 
 pub fn server_routes() -> Router {

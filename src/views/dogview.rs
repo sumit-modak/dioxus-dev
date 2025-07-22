@@ -28,18 +28,21 @@ pub fn DogView() -> Element {
     rsx! {
         document::Stylesheet { href: HOTDOG_CSS }
 
-        div { id: "title",
-            h1 { "HotDog! 🌭" }
-        }
-        div { id: "dogview",
-            img {
-                max_height: "300px",
-                src: "{img_src}"
+        div {
+            id: "dog-parent-element",
+            div { id: "title",
+                h1 { "HotDog! 🌭" }
             }
-        }
-        div { id: "buttons",
-            button { id: "skip", onclick: fetch_new, "skip" }
-            button { id: "save", onclick: save, "save!" }
+            div { id: "dogview",
+                img {
+                    max_height: "300px",
+                    src: "{img_src}"
+                }
+            }
+            div { id: "buttons",
+                button { id: "skip", onclick: fetch_new, "skip" }
+                button { id: "save", onclick: save, "save!" }
+            }
         }
     }
 }

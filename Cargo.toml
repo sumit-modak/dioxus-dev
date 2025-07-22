@@ -10,12 +10,13 @@ edition = "2024"
 axum = { version = "0.7", optional = true }
 dioxus = { version = "0", features = ["router", "fullstack", "cli-config"] }
 reqwest = { version = "0.12.20", features = ["json"] }
+scraper = { version = "0.23.1", optional = true }
 serde = { version = "1.0.219", features = ["derive"] }
 tokio = { version = "1.45.1", features = ["full"], optional = true }
 
 [features]
 default = []
-server = [ "dioxus/server", "dep:tokio", "dep:axum" ]
+server = [ "dioxus/server", "dep:tokio", "dep:axum", "dep:scraper" ]
 web = ["dioxus/web"]
 desktop = ["dioxus/desktop"]
 mobile = ["dioxus/mobile"]

@@ -22,6 +22,9 @@ pub use random::Random;
 mod pages;
 pub use pages::Pages;
 
+mod youtube;
+pub use youtube::Youtube;
+
 mod notfound;
 pub use notfound::NotFound;
 
@@ -56,6 +59,16 @@ pub fn TestNavbar() -> Element {
                 class: "url",
                 to: Route::DogView {},
                 "DogView"
+            }
+            Link {
+                class: "url",
+                to: Route::Youtube {},
+                "Youtube"
+            }
+            Link {
+                class: "url",
+                to: Route::TodoFn {},
+                "Todo"
             }
         }
         div { class: "hr" }

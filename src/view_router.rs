@@ -1,4 +1,5 @@
 use crate::blog::*;
+use crate::dioksus::*;
 use crate::examples::*;
 use crate::views::*;
 use dioxus::prelude::*;
@@ -32,6 +33,10 @@ pub enum Route {
                 Pages {},
                 #[route("/dog")]
                 DogView {},
+                #[route("/youtube")]
+                Youtube {},
+                #[route("/todo")]
+                TodoFn {},
             #[end_layout]
         #[end_nest]
         #[nest("/example")]
