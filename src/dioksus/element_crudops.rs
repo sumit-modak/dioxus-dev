@@ -50,7 +50,7 @@ pub fn TodoFn() -> Element {
     };
 
     // Update: Save edited todo
-    let mut on_save_edit = use_callback(move |id: u32| {
+    let mut on_save_edit = move |id: u32| {
         let text = edit_text.read().trim().to_string();
         if !text.is_empty() {
             let mut todos = todolist.write();
@@ -60,7 +60,7 @@ pub fn TodoFn() -> Element {
             editing_id.set(None);
             edit_text.set(String::new());
         }
-    });
+    };
 
     // Delete: Remove a todo
     let mut on_delete = move |id: u32| {

@@ -1,22 +1,24 @@
 use crate::components::Thumbnail;
 use dioxus::{logger::tracing::info, prelude::*};
+use wasm_bindgen::JsCast;
+use wasm_bindgen::closure::Closure;
+use web_sys::{IntersectionObserver, IntersectionObserverEntry, IntersectionObserverInit};
 
 #[component]
 pub fn Random() -> Element {
-    let mut images: Signal<Vec<RandImg>> = use_signal(|| Vec::new());
+    let mut images: Signal<Vec<RandImg>> = use_signal(|| Vec::<RandImg>::with_capacity(20));
+    let mut image_resource = use_resource(move || async move {
+        if let Ok(new_images) = img_list().await {
+            images.extend(new_images);
+        }
+        images
+    });
+    let mut loading = use_signal(|| false); // Loading state
+
     rsx! {
-        // Image & button
         div {
-            button {
-                onclick: move |e: Event<MouseData>| async move {
-                    info!("Clicked");
-                    e.stop_propagation();
-                    *images.write() = img_list().await.unwrap();
-                },
-                "Click me!"
-            }
             div {
-                style: "display: flex; flex-wrap: wrap; gap: 8px;",
+                style: "display: flex; flex-wrap: wrap; justify-content: center; gap: 8px;",
                 for entry in images.read().iter() {
                     Thumbnail {
                         thumbnail: entry.url.to_string(),
@@ -29,11 +31,31 @@ pub fn Random() -> Element {
                     }
                 }
             }
+            if !*loading.read() {
+                div {
+                    class: "loading text-center text-gray-500 py-4",
+                    "Loading more videos..."
+                }
+            }
+            div {
+                id: "sentinel",
+                class: "sentinel h-1",
+                onvisible: move |event: Event<VisibleData>| async move {
+                    if let Ok(true) = event.data.is_intersecting() {
+                        info!("Sentinel is visible, triggering fetch...");
+                        loading.set(true);
+                        if let Ok(new_images) = img_list().await {
+                            images.extend(new_images);
+                        }
+                        loading.set(false);
+                    }
+                }
+            }
         }
     }
 }
 
-#[derive(serde::Deserialize, serde::Serialize, Debug)]
+#[derive(serde::Deserialize, serde::Serialize, Debug, Clone, PartialEq)]
 pub struct RandImg {
     url: String,
     tags: Vec<String>,
@@ -53,10 +75,7 @@ async fn img_list() -> Result<Vec<RandImg>, ServerFnError> {
         .await;
 
     match response {
-        Ok(v) => {
-            println!("{v:?}");
-            Ok(v)
-        }
+        Ok(v) => Ok(v),
         Err(e) => {
             eprintln!("{e}");
             Err(e.into())

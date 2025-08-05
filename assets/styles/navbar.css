@@ -26,7 +26,7 @@
   background-color: rgb(33, 186, 69);
   display: block;
   width: 100%;
-  position: fixed;
+  position: sticky;
   bottom: 0;
   padding: 20px;
   height: 100px;

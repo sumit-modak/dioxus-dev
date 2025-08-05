@@ -30,9 +30,9 @@ pub fn Navbar() -> Element {
 
         Outlet::<Route> {}
 
-        div {
-            id: "contactus",
-            a { href: "mailto:sumitmodak@gmail.com", "Contact Us" }
-        }
+        // div {
+        //     id: "contactus",
+        //     a { href: "mailto:sumitmodak@gmail.com", "Contact Us" }
+        // }
     }
 }
