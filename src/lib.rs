@@ -3,9 +3,9 @@ mod components;
 mod dioksus;
 mod examples;
 #[cfg(feature = "server")]
-pub mod routes;
+pub mod api;
 mod view_router;
-mod views;
+mod test;
 
 use dioxus::prelude::*;
 pub use view_router::Route;

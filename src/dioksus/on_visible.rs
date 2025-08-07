@@ -5,10 +5,10 @@ use wasm_bindgen::closure::Closure;
 use web_sys::{IntersectionObserver, IntersectionObserverEntry, IntersectionObserverInit};
 
 #[component]
-pub fn Random() -> Element {
+pub fn RandomAnime() -> Element {
     let mut images: Signal<Vec<RandImg>> = use_signal(|| Vec::<RandImg>::with_capacity(20));
     let mut image_resource = use_resource(move || async move {
-        if let Ok(new_images) = img_list().await {
+        if let Ok(new_images) = anime_img_list().await {
             images.extend(new_images);
         }
         images
@@ -19,15 +19,15 @@ pub fn Random() -> Element {
         div {
             div {
                 style: "display: flex; flex-wrap: wrap; justify-content: center; gap: 8px;",
-                for entry in images.read().iter() {
+                for (index, entry) in images.read().iter().enumerate() {
                     Thumbnail {
                         thumbnail: entry.url.to_string(),
                         duration: "0:00".to_string(),
                         avatar: "https://via.placeholder.com/40".to_string(),
-                        title: entry.tags.iter().map(|s| s.to_string()).collect::<String>(),
+                        title: entry.tags.iter().map(|s| format!("{s} ")).collect::<String>(),
                         channel_name: entry.artist_name.clone().unwrap_or("null".to_string()),
                         views: "1.2M views".to_string(),
-                        created: "2 days ago".to_string(),
+                        created: index.to_string(),
                     }
                 }
             }
@@ -44,7 +44,7 @@ pub fn Random() -> Element {
                     if let Ok(true) = event.data.is_intersecting() {
                         info!("Sentinel is visible, triggering fetch...");
                         loading.set(true);
-                        if let Ok(new_images) = img_list().await {
+                        if let Ok(new_images) = anime_img_list().await {
                             images.extend(new_images);
                         }
                         loading.set(false);
@@ -63,8 +63,8 @@ pub struct RandImg {
     artist_name: Option<String>,
 }
 
-#[server]
-async fn img_list() -> Result<Vec<RandImg>, ServerFnError> {
+#[server(endpoint = "/api/fetch/anime")]
+async fn anime_img_list() -> Result<Vec<RandImg>, ServerFnError> {
     let client = reqwest::Client::new();
     let response = reqwest::Client::get(&client, "https://api.nekosapi.com/v4/images/random")
         .header("Access-Control-Allow-Origin", "*")

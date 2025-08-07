@@ -1,4 +1,5 @@
 #![allow(unused)]
+use dioxus::prelude::*;
 
 mod boolean;
 pub use boolean::Boolean;
@@ -17,6 +18,38 @@ pub use hook_global_signal::GlobalSignalHook;
 
 mod element_crudops;
 pub use element_crudops::TodoFn;
+
+mod on_visible;
+pub use on_visible::RandomAnime;
+
+/// Navigation bar for example route
+#[component]
+pub fn DioksusNavbar() -> Element {
+    use crate::Route;
+    rsx! {
+        div {
+            id: "example-navbar",
+            Link {
+                class: "url",
+                to: Route::TodoFn {},
+                "Todo"
+            }
+            Link {
+                class: "url",
+                to: Route::RandomAnime {},
+                "Anime"
+            }
+        }
+        div { class: "hr" }
+
+        Outlet::<Route> {}
+    }
+}
+
+#[component]
+pub fn Dioksus() -> Element {
+    rsx!()
+}
 
 // Use a future to handle async loading when sentinel is visible
 // let load_more = use_coroutine(move |mut rx: UnboundedReceiver<()>| async move {

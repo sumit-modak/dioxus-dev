@@ -19,6 +19,10 @@ pub fn Navbar() -> Element {
                 "Examples"
             }
             Link {
+                to: Route::Dioksus {},
+                "ExamplesDyn"
+            }
+            Link {
                 to: Route::Test {},
                 "Test"
             }

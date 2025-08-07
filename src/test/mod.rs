@@ -16,9 +16,6 @@ pub use favorites::Favorites;
 mod play;
 pub use play::Play;
 
-mod random;
-pub use random::Random;
-
 mod pages;
 pub use pages::Pages;
 
@@ -47,11 +44,6 @@ pub fn TestNavbar() -> Element {
             }
             Link {
                 class: "url",
-                to: Route::Random {},
-                "Random"
-            }
-            Link {
-                class: "url",
                 to: Route::Pages {},
                 "Pages"
             }
@@ -64,11 +56,6 @@ pub fn TestNavbar() -> Element {
                 class: "url",
                 to: Route::Youtube {},
                 "Youtube"
-            }
-            Link {
-                class: "url",
-                to: Route::TodoFn {},
-                "Todo"
             }
         }
         div { class: "hr" }

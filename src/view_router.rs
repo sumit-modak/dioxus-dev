@@ -1,7 +1,7 @@
 use crate::blog::*;
 use crate::dioksus::*;
 use crate::examples::*;
-use crate::views::*;
+use crate::test::*;
 use dioxus::prelude::*;
 
 #[rustfmt::skip]
@@ -19,48 +19,54 @@ pub enum Route {
             Blog { id: i32 },
             #[end_layout]
         #[end_nest]
+        #[nest("/example")]
+            #[layout(crate::examples::ExampleNavbar)]
+            #[route("/")]
+            Example {},
+            #[route("/background")]
+            Background {},
+            #[route("/form")]
+            Form {},
+            #[route("/list")]
+            List {},
+            #[route("/display")]
+            Display {},
+            #[route("/float")]
+            Float {},
+            #[route("/column")]
+            Column {},
+            #[route("/position")]
+            Position {},
+            #[route("/flexbox")]
+            FlexBox {},
+            #[route("/grid")]
+            Grid {},
+            #[end_layout]
+        #[end_nest]
+        #[nest("/examples_dyn")]
+            #[layout(crate::dioksus::DioksusNavbar)]
+            #[route("/")]
+            Dioksus {},
+            #[route("/todo")]
+            TodoFn {},
+            #[route("/random")]
+            RandomAnime {},
+            #[end_layout]
+        #[end_nest]
         #[nest("/test")]
-            #[layout(crate::views::TestNavbar)]
+            #[layout(crate::test::TestNavbar)]
                 #[route("/")]
                 Test {},
                 #[route("/hero")]
                 Hero {},
                 #[route("/play")]
                 Play {},
-                #[route("/random")]
-                Random {},
                 #[route("/pages")]
                 Pages {},
                 #[route("/dog")]
                 DogView {},
                 #[route("/youtube")]
                 Youtube {},
-                #[route("/todo")]
-                TodoFn {},
-            #[end_layout]
-        #[end_nest]
-        #[nest("/example")]
-            #[layout(crate::examples::ExampleNavbar)]
-                #[route("/")]
-                Example {},
-                #[route("/background")]
-                Background {},
-                #[route("/form")]
-                Form {},
-                #[route("/list")]
-                List {},
-                #[route("/display")]
-                Display {},
-                #[route("/float")]
-                Float {},
-                #[route("/column")]
-                Column {},
-                #[route("/position")]
-                Position {},
-                #[route("/flexbox")]
-                FlexBox {},
-                #[route("/grid")]
-                Grid {},
             #[end_layout]
         #[end_nest]
     #[end_layout]

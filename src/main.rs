@@ -23,7 +23,7 @@ fn main() {
 async fn launch_server() {
     use dioxus::prelude::DioxusRouterExt;
     use dioxus::prelude::ServeConfig;
-    use dioxus_dev::routes;
+    use dioxus_dev::api;
 
     // Connect to dioxus' logging infrastructure
     dioxus::logger::initialize_default();
@@ -37,7 +37,7 @@ async fn launch_server() {
 
     // Build a custom axum router
     let router = axum::Router::new()
-        .nest("/", routes::server_routes())
+        .nest("/", api::server_routes())
         .serve_dioxus_application(ServeConfig::new().unwrap(), App);
         // .into_make_service();
 
