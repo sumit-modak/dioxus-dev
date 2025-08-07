@@ -67,7 +67,6 @@ pub struct RandImg {
 async fn anime_img_list() -> Result<Vec<RandImg>, ServerFnError> {
     let client = reqwest::Client::new();
     let response = reqwest::Client::get(&client, "https://api.nekosapi.com/v4/images/random")
-        .header("Access-Control-Allow-Origin", "*")
         .send()
         .await
         .unwrap()

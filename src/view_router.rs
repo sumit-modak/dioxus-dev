@@ -51,6 +51,8 @@ pub enum Route {
             TodoFn {},
             #[route("/random")]
             RandomAnime {},
+            #[route("/shop")]
+            Shopping {},
             #[end_layout]
         #[end_nest]
         #[nest("/test")]

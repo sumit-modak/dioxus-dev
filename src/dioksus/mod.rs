@@ -22,6 +22,9 @@ pub use element_crudops::TodoFn;
 mod on_visible;
 pub use on_visible::RandomAnime;
 
+mod shopping;
+pub use shopping::Shopping;
+
 /// Navigation bar for example route
 #[component]
 pub fn DioksusNavbar() -> Element {
@@ -38,6 +41,11 @@ pub fn DioksusNavbar() -> Element {
                 class: "url",
                 to: Route::RandomAnime {},
                 "Anime"
+            }
+            Link {
+                class: "url",
+                to: Route::Shopping {},
+                "Shopping"
             }
         }
         div { class: "hr" }

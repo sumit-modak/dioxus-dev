@@ -8,3 +8,6 @@ pub use echo::Echo;
 
 mod thumbnail;
 pub use thumbnail::Thumbnail;
+
+mod image_carousel;
+pub use image_carousel::{ImageCarousel, ImageCarouselItem};
