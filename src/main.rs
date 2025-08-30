@@ -35,11 +35,10 @@ async fn launch_server() {
     //     8080,
     // );
 
-    // Build a custom axum router
     let router = axum::Router::new()
-        .nest("/", api::server_routes())
-        .serve_dioxus_application(ServeConfig::new().unwrap(), App);
-        // .into_make_service();
+        .merge(api::server_routes())
+        .serve_dioxus_application(ServeConfig::new().unwrap(), App)
+        .into_make_service();
 
     // And launch it!
     let listener = tokio::net::TcpListener::bind(socket_addr).await.unwrap();

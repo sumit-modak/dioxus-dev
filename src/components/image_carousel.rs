@@ -1,5 +1,5 @@
-use dioxus::prelude::*;
 use dioxus::logger::tracing::info;
+use dioxus::prelude::*;
 
 #[derive(Props, PartialEq, Clone, Debug)]
 pub struct ImageCarouselItem {

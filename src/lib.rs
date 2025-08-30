@@ -1,11 +1,12 @@
+#[cfg(feature = "server")]
+pub mod api;
 mod blog;
 mod components;
 mod dioksus;
 mod examples;
-#[cfg(feature = "server")]
-pub mod api;
-mod view_router;
+mod primitives;
 mod test;
+mod view_router;
 
 use dioxus::prelude::*;
 pub use view_router::Route;

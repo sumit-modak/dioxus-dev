@@ -2,6 +2,7 @@ use crate::blog::*;
 use crate::dioksus::*;
 use crate::examples::*;
 use crate::test::*;
+use crate::primitives::*;
 use dioxus::prelude::*;
 
 #[rustfmt::skip]
@@ -54,6 +55,13 @@ pub enum Route {
             #[route("/shop")]
             Shopping {},
             #[end_layout]
+        #[end_nest]
+        #[nest("/primitives")]
+            #[layout(crate::primitives::PrimitiveNavbar)]
+                #[route("/")]
+                PrimitiveRoot {},
+                #[route("/accordion")]
+                MyAccordion {},
         #[end_nest]
         #[nest("/test")]
             #[layout(crate::test::TestNavbar)]

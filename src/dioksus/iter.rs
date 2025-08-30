@@ -1,4 +1,4 @@
-use dioxus::{prelude::*};
+use dioxus::prelude::*;
 
 struct User {
     id: String,

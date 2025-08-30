@@ -1,4 +1,3 @@
-#![allow(unused)]
 use dioxus::prelude::*;
 
 mod home;

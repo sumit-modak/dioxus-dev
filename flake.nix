@@ -11,6 +11,7 @@
     systems = [ "x86_64-linux" "x86_64-darwin" "aarch64-darwin" "aarch64-linux" ];
     
     perSystemOutputs = system: let
+      # pkgs = nixpkgs.legacyPackages.${system};
       pkgs = import nixpkgs {
         inherit system;
         overlays = [ rust-overlay.overlays.default ];
@@ -30,14 +31,13 @@
         ]);
       
       cargoToml = builtins.fromTOML (builtins.readFile ./Cargo.toml);
-      rev = toString (self.shortRev or self.dirtyShortRev or self.lastModified or "unknown");
+      # rev = toString (self.shortRev or self.dirtyShortRev or self.lastModified or "unknown");
     in {
       packages.default = pkgs.rustPlatform.buildRustPackage {
         pname = cargoToml.package.name;
-        version = "${cargoToml.package.version}-${rev}";
+        version = cargoToml.package.version;
         src = ./.;
         cargoLock.lockFile = ./Cargo.lock;
-        strictDeps = true;
         buildInputs = rustBuildInputs;
         nativeBuildInputs = with pkgs; [
           dioxus-cli
@@ -50,8 +50,9 @@
         '';
         installPhase = ''
           mkdir -p $out/bin
-          cp -r target/dx/$pname/release/desktop $out/bin
+          cp -r target/dx/$pname/release/web $out/bin
         '';
+        strictDeps = true;
         meta.mainProgram = "server";
       };
       devShells.default = pkgs.mkShell {
@@ -62,9 +63,7 @@
           wasm-bindgen-cli_0_2_100
           dioxus-cli
         ];
-        shellHook = ''
-          export RUST_SRC_PATH="${rustToolchain}/lib/rustlib/src/rust/library";
-        '';
+        env.RUST_SRC_PATH="${rustToolchain}/lib/rustlib/src/rust/library";
       };
       formatter = pkgs.nixfmt-rfc-style;
     };
